@@ -24,18 +24,31 @@ O destaque da metodologia são os **ganchos criativos**: a história de vida e o
 
 ## Instalação
 
-**Como pacote `.skill`:** baixe/gere o arquivo `.skill` (veja abaixo) e instale-o no seu ambiente Claude conforme a documentação de Agent Skills.
-
-**Direto do repositório:** clone e aponte seu ambiente para a pasta da skill.
+Uma linha. Detecta os agentes instalados e instala em cada um. Sem dependências (a skill é markdown puro). Seguro re-rodar.
 
 ```bash
-git clone https://github.com/<seu-usuario>/briefing-to-content-strategy.git
+# macOS / Linux / WSL / Git Bash
+curl -fsSL https://raw.githubusercontent.com/oeduardobrandao/briefing-to-content-strategy/main/install.sh | bash
+
+# Windows (PowerShell 5.1+)
+irm https://raw.githubusercontent.com/oeduardobrandao/briefing-to-content-strategy/main/install.ps1 | iex
 ```
 
-Para empacotar como `.skill`, use o packager do [skill-creator](https://github.com/anthropics/skills) da Anthropic:
+Instala em `~/.claude/skills/` (Claude Code / Desktop) e em outros agentes compatíveis que existirem na máquina (Codex, OpenClaw; Cursor/Gemini no projeto atual). Pula os que você não tiver. Depois, reinicie a sessão do agente.
+
+**Prefere inspecionar antes de rodar?** (boa prática para qualquer `curl | bash`)
 
 ```bash
-python -m scripts.package_skill caminho/para/briefing-to-content-strategy
+curl -fsSL https://raw.githubusercontent.com/oeduardobrandao/briefing-to-content-strategy/main/install.sh -o install.sh
+less install.sh   # leia o que ele faz
+bash install.sh
+```
+
+**Instalação manual / app web:** o instalador acima vale para agentes de terminal. No **app web (claude.ai)**, suba o arquivo `.skill` (da página de [Releases](../../releases)) em **Configurações > Features**. Ou clone o repositório e copie a pasta da skill para `~/.claude/skills/`:
+
+```bash
+git clone https://github.com/oeduardobrandao/briefing-to-content-strategy.git
+cp -r briefing-to-content-strategy ~/.claude/skills/briefing-to-content-strategy
 ```
 
 ## Uso
