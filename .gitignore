@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Saídas geradas (não versionar artefatos de clientes)
+outputs/
+*.pptx
+Estrategia_Conteudo_*.md
+
+# Empacotamento
+*.skill
